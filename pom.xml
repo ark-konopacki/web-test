@@ -19,7 +19,7 @@
         <testng.version>6.9.10</testng.version>
         <reportng.version>1.1.4</reportng.version>
         <hamcrest.version>1.3</hamcrest.version>
-        <selenium.version>3.0.0-beta2</selenium.version>
+        <selenium.version>3.0.0-beta4</selenium.version>
         <slf4j.version>1.7.21</slf4j.version>
 
         <!-- Default suite files if not being specified from mvn command line -->
@@ -90,6 +90,12 @@
             <artifactId>slf4j-api</artifactId>
             <version>${slf4j.version}</version>
         </dependency>
+
+        <dependency>
+            <groupId>org.apache.commons</groupId>
+            <artifactId>commons-lang3</artifactId>
+            <version>3.4</version>
+        </dependency>
     </dependencies>
 
     <build>
@@ -130,10 +136,10 @@
                 <version>${maven-surefire-plugin.version}</version>
                 <configuration>
                     <systemPropertyVariables>
-                        <!-- Set webdrivers location for selenium -->
-                        <webdriver.chrome.driver>drivers/chromedriver.exe</webdriver.chrome.driver>
-                        <webdriver.ie.driver>drivers/IEDriverServer.exe</webdriver.ie.driver>
-                        <webdriver.gecko.driver>drivers/geckodriver.exe</webdriver.gecko.driver>
+                        <!-- Set webdrivers location for selenium if needed, they need to be in PATH -->
+                        <!--<webdriver.chrome.driver>drivers/chromedriver.exe</webdriver.chrome.driver>-->
+                        <!--<webdriver.ie.driver>drivers/IEDriverServer.exe</webdriver.ie.driver>-->
+                        <!--<webdriver.gecko.driver>drivers/geckodriver.exe</webdriver.gecko.driver>-->
                         <!--webdriver.safari.driver></webdriver.safari.driver-->
                     </systemPropertyVariables>
                     <!-- testng xml suite file to be used for test execution -->
