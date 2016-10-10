@@ -24,13 +24,13 @@ public class LoggingWebDriverEventListener implements WebDriverEventListener {
     }
 
     @Override
-    public void beforeChangeValueOf(WebElement webElement, WebDriver webDriver, CharSequence[] charSequences) {
-
+    public void beforeChangeValueOf(WebElement element, WebDriver webDriver, CharSequence[] charSequences) {
+        logger.trace("WebDriver is trying to clear or enter text in element '%s'", getElementLocator(element));
     }
 
     @Override
-    public void afterChangeValueOf(WebElement webElement, WebDriver webDriver, CharSequence[] charSequences) {
-
+    public void afterChangeValueOf(WebElement element, WebDriver webDriver, CharSequence[] charSequences) {
+        logger.trace("WebDriver entered text or cleared element '%s'", getElementLocator(element));
     }
 
     public void afterFindBy(By by, WebElement element, WebDriver driver) {
@@ -49,12 +49,12 @@ public class LoggingWebDriverEventListener implements WebDriverEventListener {
 
     @Override
     public void beforeNavigateRefresh(WebDriver webDriver) {
-
+        logger.debug("Webdriver is trying to refresh current page");
     }
 
     @Override
     public void afterNavigateRefresh(WebDriver webDriver) {
-
+        logger.info("Webdriver refreshed current page");
     }
 
     public void afterNavigateTo(String url, WebDriver driver) {
