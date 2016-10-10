@@ -22,6 +22,9 @@ import java.util.Collections;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
 
+import static org.apache.commons.lang3.StringUtils.isEmpty;
+import static org.apache.commons.lang3.StringUtils.isNotEmpty;
+
 /**
  * Base class for all selenium test classes
  */
@@ -80,7 +83,7 @@ public abstract class SeleniumTestBase {
                 Reporter.log(message);
                 logger.info(message);
 
-                if (gridHubUrl == null || gridHubUrl.isEmpty()) {
+                if (isEmpty(gridHubUrl)) {
                     capabilities = new DesiredCapabilities();
                     wdf = new WebDriverFactory(browser);
                 } else {
@@ -100,14 +103,14 @@ public abstract class SeleniumTestBase {
                     }
 
                     // Set browser platform
-                    if (!browserPlatform.isEmpty()) {
+                    if (isNotEmpty(browserPlatform)) {
                         capabilities.setPlatform(Platform.valueOf(browserPlatform.toUpperCase()));
                     } else {
                         capabilities.setPlatform(Platform.ANY);
                     }
 
                     // Set browser version
-                    if (browserVersion != null) {
+                    if (isNotEmpty(browserVersion)) {
                         capabilities.setVersion(browserVersion);
                     }
 
@@ -131,10 +134,10 @@ public abstract class SeleniumTestBase {
                 if (BrowserType.FIREFOX.equalsIgnoreCase(browser)) {
                     // Set firefox profile if any
                     FirefoxProfile profile = null;
-                    if (!(firefoxProfileName == null)) {
+                    if (isNotEmpty(firefoxProfileName)) {
                         ProfilesIni profilesIni = new ProfilesIni();
                         profile = profilesIni.getProfile(firefoxProfileName);
-                    } else if (!(firefoxProfilePath == null)) {
+                    } else if (isNotEmpty(firefoxProfilePath)) {
                         profile = new FirefoxProfile(new File(firefoxProfilePath));
                     }
                     if (profile != null) {

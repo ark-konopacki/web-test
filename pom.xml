@@ -136,7 +136,7 @@
                 <version>${maven-surefire-plugin.version}</version>
                 <configuration>
                     <systemPropertyVariables>
-                        <!-- Set webdrivers location for selenium if needed, they need to be in PATH -->
+                        <!-- Set webdrivers location for selenium if needed -->
                         <!--<webdriver.chrome.driver>drivers/chromedriver.exe</webdriver.chrome.driver>-->
                         <!--<webdriver.ie.driver>drivers/IEDriverServer.exe</webdriver.ie.driver>-->
                         <!--<webdriver.gecko.driver>drivers/geckodriver.exe</webdriver.gecko.driver>-->

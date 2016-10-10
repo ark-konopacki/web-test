@@ -6,7 +6,7 @@ It is a baseline template for new Selenium test projects.
 
 ## Installation and running
 
-Prerequisits are Maven 3.x and JDK 1.7 or higher ready to use.
+Prerequisits are Maven 3.x and JDK 1.8 or higher ready to use.
 
 Be sure you have Internet connection :)
 

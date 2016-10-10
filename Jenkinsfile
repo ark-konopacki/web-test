@@ -5,9 +5,9 @@ node('windows') {
         mvnHome = tool 'm3'
     }
     stage('Build') {
-            //running on windows to check IE
-            bat(/"${mvnHome}\bin\mvn" test -Dwebtest.testng=all/)
-        }
+        //running on windows to check IE
+        bat(/"${mvnHome}\bin\mvn" test -Dwebtest.testng=all/)
+    }
     stage('Results') {
         junit keepLongStdio: true, testResults: '**/target/surefire-reports/TEST-*.xml'
         publishHTML([allowMissing         : false,
