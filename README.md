@@ -6,7 +6,7 @@ It is a baseline template for new Selenium test projects.
 
 ## Installation and running
 
-Prerequisits are Maven 3.x and JDK 1.8 or higher ready to use.
+Prerequisites are Maven 3.x and JDK 1.8 or higher ready to use.
 
 Be sure you have Internet connection :)
 
@@ -101,8 +101,8 @@ Be aware that webdriver settings (the one from `SeleniumTestBase.java`) are per 
 - [Maven](http://maven.apache.org)
 - [Selenium](http://www.seleniumhq.org)
 - [TestNG](http://testng.org)
-- [ReportNG](http://reportng.uncommons.org)
-- [hamcrest](https://code.google.com/p/hamcrest)
+- [AssertJ](http://joel-costigliola.github.io/assertj/index.html)
+- [Cucumber](https://cucumber.io/)
 
 # Todo
 

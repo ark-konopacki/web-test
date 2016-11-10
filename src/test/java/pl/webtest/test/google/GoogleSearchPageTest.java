@@ -1,32 +1,29 @@
 package pl.webtest.test.google;
 
-import static org.hamcrest.MatcherAssert.assertThat;
-import static org.hamcrest.Matchers.containsString;
-import static org.hamcrest.Matchers.equalTo;
-
 import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
-
 import pl.webtest.page.Page;
 import pl.webtest.page.google.SearchPage;
 import pl.webtest.page.google.SearchResultsPage;
 import pl.webtest.test.SeleniumTestBase;
 
+import static org.assertj.core.api.Assertions.assertThat;
+
 public class GoogleSearchPageTest extends SeleniumTestBase {
 
-	@Test
-	@Parameters({"searchString", "expectedResult"})
-	public void googleSearchTest(String searchString, String expectedResult) {
-		SearchPage searchPage = Page.getInstance(getWebDriver(),
-				"http://www.google.com/webhp?complete=1&hl=en",
-				SearchPage.class);
+    @Test
+    @Parameters({"searchString", "expectedResult"})
+    public void googleSearchTest(String searchString, String expectedResult) {
+        SearchPage searchPage = Page.getInstance(getWebDriver(),
+                "http://www.google.com/webhp?complete=1&hl=en",
+                SearchPage.class);
 
-		assertThat(searchPage.getTitle(), equalTo("Google"));
+        assertThat(searchPage.getTitle()).isEqualTo("Google");
 
-		SearchResultsPage results = searchPage.search(searchString);
-		String topResultTitle = results.getTopResultTitle();
+        SearchResultsPage results = searchPage.search(searchString);
+        String topResultTitle = results.getTopResultTitle();
 
-		assertThat(topResultTitle, containsString(expectedResult));
-	}
+        assertThat(topResultTitle).contains(expectedResult);
+    }
 
 }

@@ -13,8 +13,7 @@ import pl.webtest.test.SeleniumTestBase;
 import java.util.List;
 import java.util.stream.Collectors;
 
-import static org.hamcrest.MatcherAssert.assertThat;
-import static org.hamcrest.Matchers.greaterThan;
+import static org.assertj.core.api.Assertions.assertThat;
 
 public class GoogleSearchSeleniumTest extends SeleniumTestBase {
     private static final Logger logger = LoggerFactory.getLogger(GoogleSearchSeleniumTest.class);
@@ -65,7 +64,7 @@ public class GoogleSearchSeleniumTest extends SeleniumTestBase {
         // And now list the suggestions
         List<WebElement> allSuggestions = getWebDriver().findElements(SUGESTION_OVERLAY);
 
-        assertThat(allSuggestions.size(), greaterThan(0));
+        assertThat(allSuggestions.size()).isGreaterThan(0);
         Reporter.log("Google search successful");
 
         // Report results
